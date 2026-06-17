@@ -9,10 +9,13 @@
 ```
 grayscale-app/
 ├── backend/
-│   ├── main.py           # FastAPIサーバー（グレースケール変換APIの本体）
+│   ├── main.py           # FastAPIサーバー（APIの受け口）
+│   ├── convert.py        # グレースケール変換処理
 │   └── requirements.txt  # Pythonパッケージの依存関係リスト
 ├── frontend/
-│   └── index.html        # ブラウザで開くUI（フレームワーク不使用）
+│   ├── index.html        # ブラウザで開くUI（フレームワーク不使用）
+│   ├── style.css          # スタイル定義
+│   └── script.js          # 画面の動作・API呼び出し処理
 └── README.md             # このファイル
 ```
 
