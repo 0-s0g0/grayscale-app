@@ -8,6 +8,8 @@ from fastapi import FastAPI, File, UploadFile, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import Response
 
+from convert import convert
+
 # FastAPIアプリを作成
 app = FastAPI()
 
@@ -40,7 +42,7 @@ async def grayscale(file: UploadFile = File(...)):
         raise HTTPException(status_code=400, detail="画像の読み込みに失敗しました。対応形式（JPEG, PNG等）か確認してください。")
 
     # BGR形式の画像をグレースケールに変換
-    gray_img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+    gray_img = convert(img)
 
     # グレースケール画像をPNGのバイトデータにエンコード
     # cv2.imencode は (成功フラグ, バイト列) のタプルを返す
